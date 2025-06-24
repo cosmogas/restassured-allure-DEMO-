@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'io.qameta.allure' version '2.11.2'
 }
 
 group = 'com.stan'
@@ -18,20 +17,4 @@ dependencies {
 
 test {
     useJUnitPlatform()
-}
-
-// ↓↓↓ Добавляем это ↓↓↓
-
-allure {  
-    autoconfigure = true               // включаем автоконфиг
-    version = '2.24.0'                  // версия Allure CLI для плагина, можно опустить
-    resultsDir = file("$buildDir/allure-results")  // куда складывать JSON-файлы
-}
-
-tasks.register('allureReport') {
-  dependsOn test
-  doLast {
-    // этот таск просто обёртка, actual report генерит плагин
-    println "Allure results are in: $buildDir/allure-results"
-  }
 }
