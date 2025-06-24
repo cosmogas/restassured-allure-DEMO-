@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+group = 'com.stan'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
+    testImplementation 'io.rest-assured:rest-assured:5.4.0'
+    testImplementation 'io.qameta.allure:allure-junit5:2.24.0'
+}
+
+test {
+    useJUnitPlatform()
+}
