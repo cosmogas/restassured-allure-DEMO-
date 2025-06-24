@@ -1,7 +1,6 @@
-// в demo_proj/build.gradle
 plugins {
     id 'java'
-    id 'io.qameta.allure' version '2.22.1'    // <–– выберите последнюю версию
+    id 'io.qameta.allure' version '2.24.0'
 }
 
 group = 'com.stan'
@@ -19,14 +18,17 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    options.encoding = 'UTF-8'
 }
 
 allure {
-    autoconfigure = true    // подключаем автоконфигурацию
+    autoconfigure = true
     adapter {
         junit5 {
             enabled = true
         }
     }
+
     resultsDir = file("$buildDir/allure-results")
 }
+
